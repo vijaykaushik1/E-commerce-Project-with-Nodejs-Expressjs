@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>e-com</title>
+    <link rel="icon" href="UD.png" type="image/x-icon">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <script src="/javascripts/jquery.min.js"></script>
+   <script src="/javascripts/bootstrap.min.js"></script>
+     <script>
+        function myFunction() {
+            confirm("You Realy want to logout!");
+        }
+        </script>
+</head>
+
+<body>
+
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+                <a class="navbar-brand" href="/">UTSAVDCS</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav"  style="font-size: 20px">
+                    <li><a href="/">Home</a></li>
+
+                    <li><a href="/upload_product">Upload Products</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right"   style="font-size: 20px">
+                    <li class="active"><a href="/admin">Admin</a></li>
+                  </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <!-- Sign in Starts here -->
+     <form action="/admin" method="POST">
+        <div class="form-group">
+            <label for="exampleInputEmail1">ADMIN ID</label>
+            <input type="text" name="adminid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Admin Id" required>
+            <small id="emailHelp" class="form-text text-muted">Admin id which is provided by your company.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">PASSWORD</label>
+            <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+            <small id="emailHelp" class="form-text text-muted">Password which is provided by your company.</small>
+        </div>
+        <div class="form-group form-check">
+          <a href="#">If you forgot password, please contact with your company.</a>
+      </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <div class="">
+            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+        </div>
+
+    </form>
+        <!-- Sign in Ends here -->
+    </div>
+
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br><br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br><br>
+
+
+    <%- include('../footer.ejs'); %>

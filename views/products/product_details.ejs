@@ -1,0 +1,41 @@
+<%- include('../header.ejs'); %>
+
+
+    <br>
+    <% data.forEach(function (results) { %>
+     <div class="container">
+      <div class="container"> <!-- col-lg-6 col-md-6 col-sm-6 col-xs-12 -->
+        <div class="row">
+           <div class="thumbnail col-lg-6 col-md-6 col-sm-6">
+
+                <img src="/images/upload_images/<%=results.uploaded_image%>" alt="Lights" class="img-rounded" style="width:500px; height:400px">
+                <div class="container" style="margin-left: auto">
+
+                  <h4 style="color: dodgerblue; white-space: nowrap; width: 220px; overflow: hidden; text-overflow: ellipsis;"><%=results.product_name%></h4>
+                  <h4 style="color:red"><b>₹<%=results.price%></b></h4>
+
+                  <!-- <a href="/product_details/<%=results.id%>">See All Details</a><br><br> -->
+
+
+                    <a href="/cart/<%=results.id%>"><button type="button" class="btn btn-danger">Buy Now</button></a>
+                    <a href="/cart/<%=results.id%>"><button type="button" class="btn btn-success">Add to Cart</button></a>
+                  </div>
+
+
+              <!-- </a> -->
+            </div>
+            <div class="container col-lg-6 col-md-6 col-sm-6">
+              <h3 style="color:black"><%=results.product_name%></h3>
+                  <h3>Description </h3>
+                  <p><%=results.description%></p>
+
+          </div>
+        </div>
+      </div>
+
+
+  <%})%>
+     </div>
+        <br><br><br><br><br>
+
+      <%- include('../footer.ejs'); %>

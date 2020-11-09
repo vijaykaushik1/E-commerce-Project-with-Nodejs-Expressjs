@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Utsavdcs</title>
+    <link rel="icon" href="UD.png" type="image/x-icon">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <script src="/javascripts/jquery.min.js"></script>
+   <script src="/javascripts/bootstrap.min.js"></script>
+
+  <style>
+           img{
+
+               width: 100%;
+               height: 100%;
+          }
+      /* a:hover{
+        background-color: yellow;
+      } */
+  </style>
+    <!-- <script>
+        function myFunction() {
+            confirm("You Realy want to logout!");
+        }
+        </script> -->
+        <!-- <script type="text/javascript">
+            function preventBack() {
+                window.history.forward();
+            }
+
+            setTimeout("preventBack()", 0);
+
+            window.onunload = function () { null };
+        </script>  -->
+
+</head>
+
+<body style="background-image:url('images/ecom.jpg'); background-size:100%; background-repeat: no-repeat;">
+    <br><br><br><br>
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">UTSAVDCS</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav"  style="font-size: 20px">
+                     <li><a href="/">Home</a></li>
+                     <li><a href="/services">Services</a></li>
+                    <li><a href="/product">Products</a></li>
+                    <li class="active"><a href="/about">About us</a></li>
+                    <li data-toggle="modal" data-target="#about"><a href="#contact">Contact us</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                  <%if(nav.length <=  0){%>
+                    <li><a><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-log-in"></span> Sign in</button></a></li>
+                    <%}else{%>
+
+                      <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                      <li><a href="/profile"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-user"></span> Profile</button></a></li>
+                      <li><a href="/signout"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-log-out"></span> Sign out</button></a></li>
+
+                     <%}%>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+          <div class="jumbotron jumbotron-fluid">
+            <h1>ABOUT US</h1>
+            <p style="font-size:15px; color:red; "> We are website developers who made this website. We are looking customer who wants to buy this kind of website or want to develop
+              from us.</p>
+          </div>
+
+
+
+        <!-- <img src="images/ecom.jpg" alt=""> -->
+    </div>
+
+  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br><br>  <br>  <br>  <br>  <br>  <br><br><br>  <br>
+    <br>  <br>  <br>  <br>
+
+
+  <%- include footer %>

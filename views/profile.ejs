@@ -1,0 +1,239 @@
+<%- include header %>
+    <div class="container">
+      <% if (messagefail.length > 0) { %>
+        <div class="container">
+          <div class="alert alert-danger alert-dismissible">
+              <a class="close"  data-dismiss="alert" aria-label="close">&times;</a>
+              <h3><strong>Message! </strong><%= messagefail %></h3>
+            </div>
+        </div>
+        <br>
+  
+       <% }%>
+       <% data.forEach(function (result) { %>
+        
+
+       <div class="container">
+          <div class="row">
+            <div class="container col-lg-8 col-md-7 col-sm-6 col-xs-12">
+              <h4><b>Your Orders</b></h4>
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading" style="background-color:#0f52ba; color:White"><b>All Orders</b></div>
+                    <!-- Table -->
+                    <table class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Product orders</th>
+                        <th>Payment Status</th>
+                      </tr>
+                    </thead>
+                      <tbody>
+                        <% for(var j=0; j < results.length; j++) { %>
+                        <tr>
+                          <td><p><%=results[j].product_name%></p></td>
+                          <td><%=results[j].status%></td>
+                        </tr>
+                        <%}%>
+                      </tbody>
+                    </table>
+              </div>             
+          </div>
+
+            <div class="container col-lg-4 col-md-5 col-sm-6 col-xs-12">
+             
+              <div class="list-group">
+                <h4><b>Your Profile & Address</b></h4>
+                <a href="#" data-toggle="modal" data-target="#profile" class="list-group-item active" style="background-color:#0f52ba; color:White">
+                  <p class="list-group-item-text"><b style="color:white">Profile</b></p>
+                </a>
+                <%if(result.first_name.length>0){%>
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><b><%=result.first_name%> <%=result.last_name%></b></p>
+                </a>
+                <%}%> 
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.email%></p>
+                </a>
+                <%if(result.mobile.length>0){%>
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.mobile%></p>
+                </a> 
+                <%}%>
+                <a href="#" class="list-group-item active" style="background-color:#0f52ba; color:White">
+                  <p class="list-group-item-text"><b style="color:white">Address</b></p>
+                </a>
+                <%if(result.pincode.length>0){%>
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.pincode%></p>
+                </a>
+                <%if(result.landmark.length>0){%>
+                  <a href="#" class="list-group-item">
+                    <p class="list-group-item-text"><%=result.landmark%></p>
+                  </a>
+                 <%}%> 
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.house_no%></p>
+                </a>
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.colony%></p>
+                </a>           
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.city%></p>
+                </a>
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.state%></p>
+                </a>
+                <a href="#" class="list-group-item">
+                  <p class="list-group-item-text"><%=result.address_type%></p>
+                </a>
+                <%}%> 
+                                             
+               </div>
+               <div class="container">
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#profile"><span class="glyphicon glyphicon-pencil"></span> Update your profile</button><br>
+                <small>update your profile by clicking here</small>
+        
+               
+              </div>   
+             </div> 
+             
+          <!-- 2nd container ends here ! -->
+        </div>     
+           
+      </div>
+  
+    <%if(result.mobile.length == 0){%>
+      <br>                  <br>                  <br>              <br><br><br><br>                    <br>
+                  <br><br><br><br><br>        <br><br><br><br>       <br><br><br><br>
+      <%}%>
+ 
+
+    
+
+      <!-- Modal -->
+      <div class="modal fade" id="profile" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <center><h4 class="modal-title">Update Your Profile</h4></center>
+            </div>
+            <div class="modal-body">
+              <br>
+              <!-- form starts here -->
+                      <form action="/profile" method="POST">
+                      <div class="form-group">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="First Name" name="first_name" value="<%=result.first_name%>" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name" value="<%=result.last_name%>" required>
+                      </div>                      
+                      <div class="form-group">
+                        <label for="mobile">Mobile Number:</label>
+                        <input type="number" id="points" title="Please give us 10-digit mobile number" min="1000000000" max="9999999999" class="form-control" id="mobile" placeholder="Mobile Number" name="mobile" value="<%=result.mobile%>" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="Country">Country</label>
+                        <select class="form-control" name="country" id="country" required>
+                          <option value="<%=result.country%>"><%=result.country%> (Default)</option>
+                          <option>India</option>                                                  
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="pincode">PIN code</label>
+                        <input type="number" class="form-control" id="pincode" placeholder="6-digit PIN code [0-9]" name="pincode" min="100000" max="999999" value="<%=result.pincode%>" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="house">Flat, House no., Building, Company, Apartment</label>
+                        <input type="text" class="form-control" id="house" placeholder="Flat, House no., Building, Company, Apartment" name="house_no" maxlength="200" value="<%=result.house_no%>" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="colony">Area, Colony, Street, Sector, Village</label>
+                        <input type="text" class="form-control" id="colony" placeholder="Area, Colony, Street, Sector, Village" name="colony" maxlength="200" value="<%=result.colony%>" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="landmark">Landmark</label>
+                        <input type="text" class="form-control" id="landmark" maxlength="200" placeholder="Landmark (optional)" name="landmark" value="<%=result.landmark%>">
+                      </div>
+                      <div class="form-group">
+                        <label for="city">Town/City</label>
+                        <input type="text" class="form-control" id="city" maxlength="200" placeholder="Town/City" name="city" value="<%=result.city%>" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="state">State / Province / Region</label>                        
+                        <!--  All states Name -->
+                        <select class="form-control" name="state" id="state" required>
+                          <option value="<%=result.state%>"><%=result.state%> (Default)</option>                        
+                          <option>Andra Pradesh</option>
+                          <option>Arunachal Pradesh</option>
+                          <option>Assam Bihar</option>
+                          <option>Chhattisgarh</option>
+                          <option>Delhi</option>
+                          <option>Goa</option>
+                          <option>Gujarat</option>
+                          <option>Haryana</option>
+                          <option>Himachal Pradesh</option>
+                          <option>Jammu and Kashmir</option>
+                          <option>Jharkhand</option>
+                          <option>Karnataka</option>
+                          <option>Kerala</option>
+                          <option>Madya Pradesh</option>
+                          <option>Maharashtra</option>
+                          <option>Manipur</option>
+                          <option>Meghalaya</option>
+                          <option>Mizoram</option>
+                          <option>Nagaland</option>
+                          <option>Orissa</option>
+                          <option>Punjab</option>
+                          <option>Rajasthan</option>
+                          <option>Sikkim</option>
+                          <option>Tamil Nadu</option>
+                          <option>Telagana</option>
+                          <option>Tripura</option>
+                          <option>Uttaranchal</option>
+                          <option>Uttar Pradesh</option>
+                          <option>West Bengal</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="address">Address Type</label>                        
+                        <select class="form-control" name="address_type" id="address" required>
+                          <option value="<%=result.address_type%>"><%=result.address_type%> (Default)</option>                        
+                          <option>Home (7 AM - 9 PM delivery)</option>
+                          <option>Office/Commercial (10 AM - 6 PM delivery)</option>
+                        </select>
+                      </div>
+
+                      <button type="submit" class="btn btn-success">Update</button>
+                      </form>
+                <!-- form ends here -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <% }) %>
+
+<%- include footer %>
+
+
+
+
+
+
+
+
+
+
+

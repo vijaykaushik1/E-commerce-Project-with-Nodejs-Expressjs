@@ -1,0 +1,275 @@
+
+<div class="container">
+  <!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h2 class="modal-title">Register or Signin</h2></center>
+      </div>
+      <div class="modal-body">
+        <!-- Menu starts here -->
+          <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="#home">Sign in</a></li>
+            <li class="active"><a data-toggle="tab" href="#menu1">Register</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="home" class="tab-pane fade">
+              <br>
+
+              <!-- Sign in Starts here -->
+              <form action="/signin" method="POST">
+                  <div class="form-group">
+                      <label for="Email1">Email address</label>
+                      <input type="email" name="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="Password1">Password</label>
+                      <input type="password" name="password" class="form-control" id="Password1" placeholder="Password" required>
+                  </div>
+                  <div class="form-group form-check">
+                    <a href="/forget">forget password</a>
+                </div>
+                  <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                  <div class="">
+                      <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+                  </div>
+
+
+              </form>
+                  <!-- Sign in Ends here -->
+            </div>
+            <div id="menu1" class="tab-pane fade in active">
+              <br>
+                  <form action="/signup" method="POST">
+                    <div class="form-group">
+                        <label for="exampleEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="examplePassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="examplePassword1" placeholder="Password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    </div>
+
+                     <button type="submit" class="btn btn-danger">Submit</button>
+                 </form>
+              <!-- Sign up Ends here -->
+            </div>
+
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Model Ends here -->
+</div>
+
+<!--model end-->
+<div class="container">
+  <!-- Modal -->
+<div class="modal fade" id="myModal2" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h2 class="modal-title">Signin or Register</h2></center>
+      </div>
+      <div class="modal-body">
+        <!-- Menu starts here -->
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#signin">Sign in</a></li>
+            <li><a data-toggle="tab" href="#signup">Register</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="signin" class="tab-pane fade in active">
+              <br>
+              <!-- Sign in Starts here -->
+              <form action="/signin" method="POST">
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                  </div>
+                  <div class="form-group form-check">
+                    <a href="/forget">forget password</a>
+                </div>
+                  <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="Check1">
+                      <label class="form-check-label" for="Check1">Check me out</label>
+                  </div>
+
+                  <div class="">
+                      <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+                  </div>
+
+
+              </form>
+                  <!-- Sign in Ends here -->
+            </div>
+            <div id="signup" class="tab-pane fade">
+              <br>
+              <!-- Sign up Starts here -->
+              <form action="/signup" method="POST">
+                  <div class="form-group">
+                      <label for="InputEmail1">Email address</label>
+                      <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="InputPassword1">Password</label>
+                      <input type="password" name="password" class="form-control" id="InputPassword1" placeholder="Password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                  </div>
+
+                  <button type="submit" class="btn btn-danger">Submit</button>
+              </form>
+              <!-- Sign up Ends here -->
+            </div>
+
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Model Ends here -->
+</div>
+
+
+<!-- contact form -->
+
+<div class="container">
+  <!-- Modal -->
+<div class="modal fade" id="about" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h2 class="modal-title">Contact us</h2></center>
+      </div>
+      <div class="modal-body">
+        <!-- Menu starts here -->
+        <h4><b>Contact details</b></h4>
+        <h5><b>Email :</b> support@utsavdcs.com</h5>
+        <h5><b>Mobile :</b> +91 999 364 8713</h5>
+        <hr>
+          <!-- feedback Starts here -->
+         <center><h2>Feedback form</h2></center>
+         <hr>
+          <form id='demo-form' action="/contact" method="POST" >
+            <div class="g-recaptcha" data-sitekey="">
+                  </div>
+
+            <div class="form-group">
+              <label for="usr">Name:</label>
+              <input type="text" class="form-control" id="usr" placeholder="full name" name="name" maxlength="40" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="email address" name="email" maxlength="40" required >
+              <small  class="form-text text-muted">We'll never share your email with anyone else</small>
+            </div>
+
+
+            <div class="form-group">
+              <label for="Mobile">Mobile:</label>
+              <input type="number" class="form-control" min="1000000000" max="9999999999" id="mobile" name="mobile" placeholder="10-digit mobile number" required>
+              <small  class="form-text text-muted">We'll never share your Mobile number with anyone else</small>
+            </div>
+
+
+            <div class="form-group">
+              <label for="comment">Comment:</label>
+              <textarea class="form-control" rows="5" id="comment" placeholder="feedback" name="comment" maxlength="5000" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Model Ends here -->
+</div>
+<script>
+  function onSubmit(token) {
+    document.getElementById("demo-form").submit();
+  }
+</script>
+<!-- contact form ends here -->
+
+<!-- Footer starts here -->
+
+<div class="container-fluid" style="background-color:#404040; color:white;">
+  <div class="container">
+    <div class="row">
+      <h1></h1>
+      <div class="container col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <h5><a href="/" style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-home"></span>&nbsp; Home</a></h5>
+        <h5><a href="/product" style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-th-list"></span> Products</a></h5>
+        <h5><a href="/profile" style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-user"></span> Profile</a></h5>
+        <h5><a href="/about" style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-book"></span>&nbsp; About us</a></h5>
+      </div>
+      <div class="container col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <h5><a href="/cart" style="color:white; text-decoration:none;"> <span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></h5>
+        <h5><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Sign In</button></a></h5>
+        <h5><button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Register</button></a></h5>
+      </div>
+      <div class="container col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <h5><a href="/admin" style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Admin</a></h5>
+        <h5><a href="/upload_product" style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-flag"></span> Publish Product</a></h5>
+        <h5><a href="#" target="_blank" style="color:white; text-decoration:none;"> <span><img  style="width:20px; height:20px; background-color: white;" class="manImg" src="images\facebook.svg"></img></span> Utsavdcs.com</a></h5>
+        <h5><a href="/" style="color:white; text-decoration:none;"> <span><img  style="width:20px; height:20px" class="manImg" src="UD.png"></img></span>Utsavdcs.com</a></h5>
+      </div>
+      <div class="container col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <h5><span class="glyphicon glyphicon-map-marker"></span> chhindwara, India</h5>
+        <h5 data-toggle="modal" data-target="#about"><a href="#feedback"style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-send"></span> feedback </a></h5>
+        <h5><a href="tel:9993648713"style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-earphone"></span> +91 999364873 </a></h5>
+        <h5><a href="mailto:support@utsavdcs.com"style="color:white; text-decoration:none;"><span class="glyphicon glyphicon-envelope"></span> support@utsavdcs.com </a></h5>
+
+      </div>
+    </div>
+    <h1></h1>
+  </div>
+</div>
+<div class="container-fluid" style="background-color:black; color:white;"> <!--#E32227-->
+<center><h4>2020&copy; Copyright <a href="https://utsavdcs.com" style="color:white; text-decoration:none;">utsavdcs.com</a></h4></center>
+</div>
+
+<!-- Footer Ends here -->
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>e-com</title>
+    <link rel="icon" href="UD.png" type="image/x-icon">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="bingbot" content="index, follow" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <script src="/javascripts/jquery.min.js"></script>
+   <script src="/javascripts/bootstrap.min.js"></script>
+
+
+    <!-- <script>
+        function myFunction() {
+            confirm("You Realy want to logout!");
+        }
+        </script> -->
+        <!-- <script type="text/javascript">
+            function preventBack() {
+                window.history.forward();
+            }
+
+            setTimeout("preventBack()", 0);
+
+            window.onunload = function () { null };
+        </script>  -->
+</head>
+
+<body>
+    <br><br><br> <br>
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">UTSAVDCS</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav"  style="font-size: 20px">
+                     <li><a href="/">Home</a></li>
+                     <li><a href="/services">Services</a></li>
+                    <li><a href="/product">Products</a></li>
+                    <li><a href="/about">About us</a></li>
+                    <li data-toggle="modal" data-target="#about"><a href="#">Contact us</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <%if(nav.length <= 0){%>
+                        <li><a><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Register</button></a></li>
+                        <li><a><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-log-in"></span> Sign in</button></a></li>
+
+                      <%}else{%>
+                        <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                        <li><a href="/profile"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-user"></span> Profile</button></a></li>
+                        <li><a href="/signout"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-log-out"></span> Sign out</button></a></li>
+                        <%}%>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <center><h2 class="modal-title">Register or Signin</h2></center>
+            </div>
+            <div class="modal-body">
+              <!-- Menu starts here -->
+                <ul class="nav nav-tabs">
+                  <li><a data-toggle="tab" href="#home">Sign in</a></li>
+                  <li class="active"><a data-toggle="tab" href="#menu1">Register</a></li>
+                </ul>
+
+                <div class="tab-content">
+                  <div id="home" class="tab-pane fade">
+                    <br>
+
+                    <!-- Sign in Starts here -->
+                    <form action="/signin" method="POST">
+                        <div class="form-group">
+                            <label for="Email1">Email address</label>
+                            <input type="email" name="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password1">Password</label>
+                            <input type="password" name="password" class="form-control" id="Password1" placeholder="Password" required>
+                        </div>
+                        <div class="form-group form-check">
+                          <a href="/forget">forget password</a>
+                      </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+                        </div>
+
+
+                    </form>
+                        <!-- Sign in Ends here -->
+                  </div>
+                  <div id="menu1" class="tab-pane fade in active">
+                    <br>
+                        <form action="/signup" method="POST">
+                          <div class="form-group">
+                              <label for="exampleEmail1">Email address</label>
+                              <input type="email" name="email" class="form-control" id="exampleEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          </div>
+                          <div class="form-group">
+                              <label for="examplePassword1">Password</label>
+                              <input type="password" name="password" class="form-control" id="examplePassword1" placeholder="Password" required>
+                          </div>
+
+                           <button type="submit" class="btn btn-danger">Submit</button>
+                       </form>
+                    <!-- Sign up Ends here -->
+                  </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Model Ends here -->
+    </div>
+
+
+
+    <div class="container">
+        <!-- Modal -->
+      <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <center><h2 class="modal-title">Signin or Register</h2></center>
+            </div>
+            <div class="modal-body">
+              <!-- Menu starts here -->
+                <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" href="#signin">Sign in</a></li>
+                  <li><a data-toggle="tab" href="#signup">Register</a></li>
+                </ul>
+
+                <div class="tab-content">
+                  <div id="signin" class="tab-pane fade in active">
+                    <br>
+                    <!-- Sign in Starts here -->
+                    <form action="/signin" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                        </div>
+                        <div class="form-group form-check">
+                          <a href="/forget">forget password</a>
+                      </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="Check1">
+                            <label class="form-check-label" for="Check1">Check me out</label>
+                        </div>
+
+                        <div class="">
+                            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+                        </div>
+
+
+                    </form>
+                        <!-- Sign in Ends here -->
+                  </div>
+                  <div id="signup" class="tab-pane fade">
+                    <br>
+                    <!-- Sign up Starts here -->
+                    <form action="/signup" method="POST">
+                        <div class="form-group">
+                            <label for="InputEmail1">Email address</label>
+                            <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control" id="InputPassword1" placeholder="Password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </form>
+                    <!-- Sign up Ends here -->
+                  </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Model Ends here -->
+    </div>
+
+
+
+
+
+<!-- contact form -->
+
+  <div class="container">
+      <!-- Modal -->
+    <div class="modal fade" id="about" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <center><h2 class="modal-title">Contact us</h2></center>
+          </div>
+          <div class="modal-body">
+            <!-- Menu starts here -->
+            <h4><b>Contact details</b></h4>
+            <h5><b>Email :</b> support@dhaniban.com</h5>
+            <h5><b>Mobile :</b> +91 999 364 8713</h5>
+            <hr>
+              <!-- feedback Starts here -->
+             <center><h2>Feedback form</h2></center>
+             <hr>
+              <form action="/contact" method="POST" >
+                <div class="form-group">
+                  <label for="usr">Name:</label>
+                  <input type="text" class="form-control" id="usr" placeholder="full name" name="name" maxlength="40" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="email address" name="email" maxlength="40" required >
+                  <small  class="form-text text-muted">We'll never share your email with anyone else</small>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="Mobile">Mobile:</label>
+                  <input type="number" class="form-control" min="1000000000" max="9999999999" id="mobile" name="mobile" placeholder="10-digit mobile number" required>
+                  <small  class="form-text text-muted">We'll never share your Mobile number with anyone else</small>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="comment">Comment:</label>
+                  <textarea class="form-control" rows="5" id="comment" placeholder="feedback" name="comment" maxlength="5000" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Model Ends here -->
+  </div>
+<!-- contact form ends here -->

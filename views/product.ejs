@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Utsavdcs</title>
+    <link rel="icon" href="UD.png" type="image/x-icon">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <script src="/javascripts/jquery.min.js"></script>
+   <script src="/javascripts/bootstrap.min.js"></script>
+
+  <style>
+
+
+  </style>
+
+    <!-- <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        }
+
+        setTimeout("preventBack()", 0);
+
+        window.onunload = function () { null };
+    </script>
+  -->
+
+</head>
+
+<body>
+  <br><br><br>
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">UTSAVDCS</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav"  style="font-size: 20px; ">
+                     <li><a href="/" >Home</a></li>
+                     <li><a href="/services" >Services</a></li>
+                    <li class="active"><a href="/product" >Products</a></li>
+                    <li><a href="/about" >About us</a></li>
+                    <li data-toggle="modal" data-target="#about"><a href="#">Contact us</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+
+                  <%if(nav.length <= 0){%>
+                    <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                    <li><a href="/profile"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-user"></span> Profile</button></a></li>
+                    <li><a href="/signout"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-log-out"></span> Sign out</button></a></li>
+                    <%}else{%>
+                    <li><a><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-log-in"></span> Sign in</button></a></li>
+                     <%}%>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+      <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable div").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
+
+<% if (messageout.length > 0) { %>
+  <div class="container">
+    <div class="alert alert-success alert-dismissible">
+        <a class="close"  aria-label="close" data-toggle="modal" data-target="#myModal2">&times;</a>
+        <strong><%= messageout %></strong>
+      </div>
+  </div>
+  <br>
+
+  <%}%>
+
+     <% if (message.length > 0) { %>
+      <div class="container">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading"><%= message %>!</h4>
+        </div>
+      </div>
+
+
+     <% } else {%>
+    <br>
+      <div class="container">
+          <form class="" action="#">
+            <div class="input-group col-lg-12">
+                <input type="text" id="myInput" class="form-control" placeholder="Search Your Product....." name="search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+      </div>
+      <br>
+       <!--Start Jumbotron -->
+      <div class="container">
+       <div class="jumbotron jumbotron-fluid">
+
+        <center><h1 class="display-4">All PRODUCTS</h1></center>
+        <!-- <P>WELCOME TO THE PRODUCT PAGE</P> -->
+
+       </div>
+     </div>
+    <!-- End Jumbotron -->
+
+
+<!--
+      <div class="container" >
+        <form action="/product/category" method="GET">
+          <div class="input-group col-lg-12"  style="width:300px; float: right;">
+
+
+            <select class="form-control" id="sel1" name="category" required>
+              <option value="">Select</option>
+              <option>Smartphone</option>
+              <option>Tab</option>
+             </select>
+
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                     <i class="glyphicon glyphicon-search"></i>
+                 </button>
+            </div>
+          </div>
+          </form>
+
+      </div>
+      <br> -->
+
+
+             <div class="container" id="myTable">
+              <% data.forEach(function (result) { %>
+                <div class="container col-lg-3 col-md-4 col-sm-4 col-xs-12" style="margin-left:0px; margin-right:95px">
+                  <div class="row">
+                     <div class="thumbnail">
+                        <!-- <a href="images/upload_images/<%=result.uploaded_image%>" target="_blank"> -->
+                          <img src="images/upload_images/<%=result.uploaded_image%>" alt="Lights" class="img-thumbnail" style="width:500px; height:250px">
+                          <div class="caption">
+                            <a href="#" style="text-decoration: none;">
+                            <p style="font-size: medium; white-space: nowrap; width: 200px; overflow: hidden; text-overflow: ellipsis;"><%=result.product_name%></p>
+                            <h4 style="color:red"><b>₹<%=result.price%></b></h4>
+                            <a href="/product_details/<%=result.id%>">See All Details</a><br><br>
+                          </a>
+                            <a href="/cart/<%=result.id%>"><button type="button" class="btn btn-danger">Buy Now</button></a>
+                            <a href="/cart/<%=result.id%>"><button type="button" class="btn btn-default">Add To Cart</button></a>
+                          </div>
+                        <!-- </a> -->
+                      </div>
+                  </div>
+                </div>
+                <% }) %>
+             </div>
+         <% } %>
+  </div>
+
+
+
+<%- include footer %>

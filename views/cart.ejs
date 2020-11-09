@@ -1,0 +1,70 @@
+    <%- include header %>
+    <script>
+      var total=0;
+   </script>
+      
+
+        <div class="container">
+               
+              <p style=" text-align: right; font-size: 60px;"><span class="glyphicon glyphicon-shopping-cart"></span></p>
+              <!-- <div class="container">
+                <div class="jumbotron">
+                  <h1 style=" text-align: right; font-size: 100px;"><span class="glyphicon glyphicon-shopping-cart"></span></h1>
+                  </div>
+              </div> -->
+            <%if(total_price.length>0){%>
+              <div class="container">
+                <h3 style=" text-align: right; color:red;"><b style="color: black;">Total Price :</b> <%= total_price %></h3>
+                <a href="/pay/data"><button class="btn btn-success" type="button" name="button" style=" float: right; margin-right:0px"> PAY NOW TO ORDER </button></a>
+                <br><br><br>
+                <%}else{%>
+                  <center><h3>No itme available in your cart.</h3></center>
+                  <center><h4>Click on the products button to shop</h4></center> 
+                  <center><a href="/product"><button class="btn btn-danger">PRODUCTS</button></a></center>   
+                  <br>                  <br>                  <br>                  <br>                   <br>                  <br>
+                  <br><br><br><br><br>        <br><br><br><br>       <br><br><br><br>
+                  <%}%>
+                </div>
+                <hr>
+                
+
+                  <div class="container" id="myTable">
+                    <% data.forEach(function (result) { %>
+                      <div class="container col-lg-3 col-md-4 col-sm-4 col-xs-12" style="margin-left:auto; margin-right:50px;">
+                        <div class="row">
+                           <div class="thumbnail">
+                              <!-- <a href="images/upload_images/<%=result.uploaded_image%>" target="_blank"> -->
+                                <img src="images/upload_images/<%=result.image%>" alt="Lights" class="img-rounded " style="width:500px; height:250px">
+                                <div class="caption">
+                                
+                                  <h4 style=" white-space: nowrap; width: 200px; overflow: hidden; text-overflow: ellipsis;"><%=result.product_name%></h4>
+                                  <h4 style="color:red"><b>₹<%=result.price%></b></h4>
+                            
+                                 <div class="row" style="margin:px;">
+                                   <div class="col-xs-4">
+                                    <a href="/cart/remove/<%=result.id%>"><button class="btn btn-link btn-sm">Remove</button></a>
+                                   </div>
+                                   <div class="col-xs-8 ">
+                                    <form action="/cart" method="POST">
+                                      <input type="hidden" name="id" value="<%=result.id%>">
+                                      <input type="number" id="points" name="quantity" step="1" min="1" max="100" value="<%=result.quantity%>" size="50">
+                                      <button class="btn btn-success btn-sm" type="submit">update</button>
+                                    </form>
+                                   </div>
+                                  
+
+                                 </div>
+                                    
+                                </div>
+                              <!-- </a> -->
+                            </div>
+                        </div>
+                      </div>
+                      <% }) %>
+                   </div>
+                
+
+
+            </div>
+
+    <%- include footer %>
